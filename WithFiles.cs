@@ -80,7 +80,11 @@ namespace WindowsFormsApp1
         private void button9_Click(object sender, EventArgs e)
         {
             // перемещает, но следите чтобы файла не было в папке иначе будет ошибка
-            File.Move(path, path2);
+            try
+            {
+                File.Move(path, path2);
+            }
+            catch { MessageBox.Show("Похоже этот файл уже существует"); }
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -97,7 +101,79 @@ namespace WindowsFormsApp1
         private void button12_Click(object sender, EventArgs e)
         {
             // пас 1 записал в пас 2, а пас 2 в пас 3, пас 1 удален
-            File.Replace(path, path2, path3);
+            try { File.Replace(path, path2, path3); }
+            catch { MessageBox.Show("Необходимого файла не существует"); }
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            // устанавливает сегодняшнюю дату и время
+            try { File.SetCreationTime(path, DateTime.Now); }
+            catch { MessageBox.Show("Файл не найден"); }
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            string content = "Создает файл и записывает в него строку и закрывает файл" +
+                "если целевой файл существует то он будет переопределен";
+            File.WriteAllText(path, content);
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            // есть ли в файле символ а
+            StreamReader sr = new StreamReader(path);
+            if (sr.ReadToEnd().Contains("а"))
+            {
+                MessageBox.Show("В данном файле есть эта буква", "Ответ");
+            }
+            else MessageBox.Show("В данном файле нет этой буква", "Ответ");
+
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            // Сколько в файле буквы а
+            char symbol = 'а';
+            string[] lines = File.ReadAllLines(path);
+            int count = 0;
+            foreach (string line in lines)
+            {
+                foreach (char c in line)
+                {
+                    if (c == symbol)
+                    {
+                        count++;
+                    }
+                }
+            }
+            MessageBox.Show(String.Format(count.ToString()));
+
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            // замена символа
+            char symbol = 'а';
+            char newsymbol = 'q';
+            StreamReader sr = new StreamReader(path);
+            string lines = sr.ReadToEnd();
+            
+            
+            for(int i = 0; i < lines.Length; i++)
+            {
+                if (lines[i] == symbol)
+                {
+
+                    lines = newsymbol.ToString();
+                }
+                
+                
+            }
+            
+            
+
+
         }
     }
 }
