@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -6,6 +7,7 @@ namespace WindowsFormsApp1
     public partial class WorkwithArray : Form
     {
         int[,] array = new int[100, 100];
+        int[,] array1 = new int[100, 100];
         public WorkwithArray()
         {
             InitializeComponent();
@@ -26,6 +28,7 @@ namespace WindowsFormsApp1
                     {
                         array[i, j] = rnd.Next(0, 100);
                         dataGridView1.Rows[i].Cells[j].Value = array[i, j];
+                        
                     }
 
                 }
@@ -148,8 +151,7 @@ namespace WindowsFormsApp1
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Form2 form = new Form2();
-            form.Show();
+           
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -175,6 +177,101 @@ namespace WindowsFormsApp1
         private void WorkwithArray_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+
+            int m = int.Parse(textBox1.Text);
+            int n = int.Parse(textBox2.Text);
+            int[] rezarray = new int[100];
+            
+            for (int i = 0; i < m; i++)
+            {
+                int sum = 0;
+                for (int j = 0; j < n; j++)
+                {
+                    sum += array1[i, j];
+                   
+                }
+                listBox2.Items.Add("Сумма" + sum);
+            }
+            
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Random rnd = new Random();
+                int m = int.Parse(textBox1.Text);
+                int n = int.Parse(textBox2.Text);
+                dataGridView2.ColumnCount = n;
+                dataGridView2.RowCount = m;
+                for (int i = 0; i < m; i++)
+                {
+                    for (int j = 0; j < n; j++)
+                    {
+                        array1[i, j] = rnd.Next(0, 100);
+                        dataGridView2.Rows[i].Cells[j].Value = array1[i, j];
+
+                    }
+
+                }
+            }
+            catch { MessageBox.Show(String.Format("Вы не ввели значения")); }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            int m = int.Parse(textBox1.Text);
+            int n = int.Parse(textBox2.Text);
+            int[] rezarray = new int[100];
+            for(int j = 0; j < m; j++)
+{
+                int max = array1[0, j];
+                for (int i = 1; i < n; i++)
+                {
+                    if (array1[i, j] > max)
+                    {
+                        max = array1[i, j];
+                    }
+                }
+                
+                rezarray[j] = max;
+                listBox3.Items.Add("Наибольший: " + rezarray[j]);
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            int m = int.Parse(textBox1.Text);
+            int n = int.Parse(textBox2.Text);
+            bool found = false;
+            for (int i = 0; i < m; i++)
+            {
+                bool ordered = true;
+                for (int j = 1; j < n; j++)
+                {
+                    if (array1[i, j] <= array1[i, j - 1])
+                    {
+                        ordered = false;
+                        break;
+                    }
+                }
+                if (ordered)
+                {
+                    MessageBox.Show($"Строка №{i} упорядочена по возрастанию");
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+            {
+                MessageBox.Show("Нет упорядоченных строк");
+            }
         }
     }
 }

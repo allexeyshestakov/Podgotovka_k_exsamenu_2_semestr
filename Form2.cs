@@ -72,8 +72,50 @@ namespace WindowsFormsApp1
 
         private void button6_Click(object sender, EventArgs e)
         {
-            WithFiles withFiles = new WithFiles();
-            withFiles.Show();
+            
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            string str = richTextBox1.Text;
+
+            if (String.IsNullOrEmpty(str) || String.IsNullOrEmpty(textBox5.Text))
+            {
+                MessageBox.Show("Введите что-нибудь!");
+            }
+            else
+            {
+                if (str.IndexOf(textBox5.Text) != -1)
+                {
+                    
+                    richTextBox1.SelectionStart = str.IndexOf(textBox5.Text);
+                    richTextBox1.SelectionLength = textBox5.Text.Length;
+                    richTextBox1.SelectionBackColor = Color.Red;
+                    MessageBox.Show("Найдено!");
+                }
+                else
+                {
+                    MessageBox.Show("Не обнаружено!");
+                }
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            string str = richTextBox1.Text;
+            string text = textBox5.Text;
+            int count = 0;
+            for(int i = 0; i < str.Length; i++)
+            {
+                if (str.)
+                {
+                    count++;
+                }
+            }
+                
+               
+            
+            MessageBox.Show(String.Format("Это слово встречается " + count + " раз"));
         }
     }
 }

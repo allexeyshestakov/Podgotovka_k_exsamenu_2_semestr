@@ -117,4 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="button10.Text" xml:space="preserve">
+    <value>Напишите программу, которая проверяет, существует ли в двумерном массиве хотя бы одна строка, в которой все элементы упорядочены по возрастанию. Если такая строка существует, программа выводит ее номер, в противном случае выводит сообщение о том, что такой строки нет.</value>
+  </data>
 </root>

@@ -163,8 +163,7 @@ namespace WindowsFormsApp1
 
         private void button18_Click(object sender, EventArgs e)
         {
-            WithMethods methods = new WithMethods();
-            methods.Show();
+            
         }
     }
 }
