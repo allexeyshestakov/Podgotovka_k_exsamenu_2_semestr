@@ -151,5 +151,30 @@ namespace WindowsFormsApp1
             Form2 form = new Form2();
             form.Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            
+            Form2 text = new Form2();
+            text.Show();
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            WithFiles files = new WithFiles();
+            files.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            WithMethods methods = new WithMethods();
+            methods.Show(); 
+        }
+
+        private void WorkwithArray_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -157,23 +157,14 @@ namespace WindowsFormsApp1
             char symbol = 'а';
             char newsymbol = 'q';
             StreamReader sr = new StreamReader(path);
-            string lines = sr.ReadToEnd();
-            
-            
-            for(int i = 0; i < lines.Length; i++)
-            {
-                if (lines[i] == symbol)
-                {
+            MessageBox.Show(sr.ReadToEnd().Replace(symbol, newsymbol));
+            File.WriteAllText(path, sr.ReadToEnd().Replace(symbol, newsymbol));
+        }
 
-                    lines = newsymbol.ToString();
-                }
-                
-                
-            }
-            
-            
-
-
+        private void button18_Click(object sender, EventArgs e)
+        {
+            WithMethods methods = new WithMethods();
+            methods.Show();
         }
     }
 }

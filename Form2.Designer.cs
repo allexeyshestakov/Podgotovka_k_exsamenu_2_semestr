@@ -239,9 +239,9 @@
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button6.Location = new System.Drawing.Point(571, 339);
+            this.button6.Location = new System.Drawing.Point(12, 428);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(227, 99);
+            this.button6.Size = new System.Drawing.Size(156, 39);
             this.button6.TabIndex = 16;
             this.button6.Text = "Текстовые файлы. Классы и методы для работы с текстовыми файлами.";
             this.button6.UseVisualStyleBackColor = true;
@@ -263,7 +263,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 479);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.label5);
