@@ -117,4 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="button19.Text" xml:space="preserve">
+    <value>Напишите программу на C# Windows Forms, которая будет считывать данные из текстового файла "input.txt" и записывать их в новый файл "output.txt", одновременно удаляя все знаки препинания. Программа должна выводить сообщение о успешном выполнении задачи</value>
+  </data>
+  <data name="button20.Text" xml:space="preserve">
+    <value>Напишите программу на C# Windows Forms, которая будет принимать от пользователя строку текста и заменять все пробелы на знак подчеркивания с помощью метода String.Replace(). Результат замены должен выводиться в отдельном текстовом поле</value>
+  </data>
 </root>

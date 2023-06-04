@@ -26,9 +26,9 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            
-            File.Create(path).Dispose();    
+
+
+            File.Create(path).Dispose();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace WindowsFormsApp1
 
         private void button4_Click(object sender, EventArgs e)
         {
-            
+
             string content = "обратите внимание, что эта часть полностью переписывает весь текст в файле";
             File.WriteAllText(path, content);
         }
@@ -74,7 +74,7 @@ namespace WindowsFormsApp1
 
         private void button8_Click(object sender, EventArgs e)
         {
-           MessageBox.Show(File.GetLastAccessTime(path).ToString(), "Покажет когда последний раз проходили действия с файлом");
+            MessageBox.Show(File.GetLastAccessTime(path).ToString(), "Покажет когда последний раз проходили действия с файлом");
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -157,13 +157,57 @@ namespace WindowsFormsApp1
             char symbol = 'а';
             char newsymbol = 'q';
             StreamReader sr = new StreamReader(path);
-            MessageBox.Show(sr.ReadToEnd().Replace(symbol, newsymbol));
+
+
             File.WriteAllText(path, sr.ReadToEnd().Replace(symbol, newsymbol));
+
+
+            MessageBox.Show(sr.ReadToEnd().Replace(symbol, newsymbol));
+            sr.Close();
         }
 
         private void button18_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void button18_Click_1(object sender, EventArgs e)
+        {
+
+            string folder = textBox1.Text;
+            string sometext = textBox2.Text;
+            string newtext = textBox3.Text;
+            var files = Directory.GetFiles(folder, "*.txt");
+            foreach (var file in files)
+            {
+                string text = File.ReadAllText(file);
+                text = text.Replace(sometext, newtext);
+                File.WriteAllText(file, text);
+            }
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            char symbol = ',';
+            char newsymbol = ' ';
+            StreamReader sr = new StreamReader(path);
+            File.WriteAllText(path, sr.ReadLine().Replace(symbol, newsymbol));
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            char symbol = ' ';
+            char newsymbol = '_';
+            StreamReader sr = new StreamReader(path);
+
+
+            File.WriteAllText(path, sr.ReadToEnd().Replace(symbol, newsymbol));
+
+
+            MessageBox.Show(sr.ReadToEnd().Replace(symbol, newsymbol));
+            sr.Close();
+
+
         }
     }
 }

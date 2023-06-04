@@ -104,18 +104,18 @@ namespace WindowsFormsApp1
         {
             string str = richTextBox1.Text;
             string text = textBox5.Text;
-            int count = 0;
-            for(int i = 0; i < str.Length; i++)
+            String[] words = str.Split(new char[] { ' ', ',' });
+
+            int counter = 0;
+
+            foreach (var word in words)
             {
-                if (str.)
-                {
-                    count++;
-                }
+                if (text == word.ToLower())
+                    counter++;
             }
-                
-               
-            
-            MessageBox.Show(String.Format("Это слово встречается " + count + " раз"));
+
+
+            MessageBox.Show(String.Format("Это слово встречается " + counter + " раз"));
         }
     }
 }
